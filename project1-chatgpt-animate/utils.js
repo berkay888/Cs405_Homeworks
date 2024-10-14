@@ -171,10 +171,11 @@ function getModelViewMatrix() {
     const translationMatrix = createTranslationMatrix(0.3, -0.25, 0); // Translation by 0.3 and -0.25
 
     let modelViewMatrix = multiplyMatrices(identityMatrix, scaleMatrix); // Apply scaling
+    modelViewMatrix = multiplyMatrices(modelViewMatrix, translationMatrix);
     modelViewMatrix = multiplyMatrices(modelViewMatrix, rotationMatrixZ); // Apply rotation on Z-axis
     modelViewMatrix = multiplyMatrices(modelViewMatrix, rotationMatrixY); // Apply rotation on Y-axis
     modelViewMatrix = multiplyMatrices(modelViewMatrix, rotationMatrixX); // Apply rotation on X-axis
-    modelViewMatrix = multiplyMatrices(modelViewMatrix, translationMatrix); // Apply translation
+     // Apply translation
 
     return new Float32Array(modelViewMatrix);
 }
